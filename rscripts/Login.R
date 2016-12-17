@@ -1,5 +1,6 @@
 #### Log in module ###
-USER <- reactiveValues(Logged = Logged)
+USER <- reactiveValues(Logged = Logged,
+                       Admin = Admin)
 
 passwdInput <- function(inputId, label) {
         tagList(
@@ -27,6 +28,11 @@ output$pass <- renderText({
                                 Password <- isolate(input$passwd)
                                 Id.username <- which(PASSWORD$Name == Username)
                                 Id.password <- which(PASSWORD$Password    == Password)
+                                
+                                # adding admin check
+                                
+                                USER$Admin = PASSWORD[Id.username, 'Admin']
+                                
                                 if (length(Id.username) > 0 & length(Id.password) > 0) {
                                         if (Id.username == Id.password) {
                                                 USER$Logged <- TRUE

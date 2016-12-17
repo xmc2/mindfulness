@@ -15,6 +15,7 @@ source('rscripts/googleauth.R')
 # ENCRYPTION INFORMATION
 
 Logged = FALSE;
+Admin = FALSE;
 PASSWORD <- data.frame(Name = c("Bob","Matt","Sarah","John","Nattyboh","Johnnyhops","bob"), 
                        Password = c("2fc1c0beb992cd7096975cfebf9d5c3b",  # Bob
                                     "7c1f90bd9bdc70cc059640a7a6209389",  # Matt
@@ -80,9 +81,12 @@ shinyServer(function(input, output, session) {
         # ss below
         
         observe({
-                if (USER$Logged == TRUE) {
+                if (USER$Logged == TRUE & USER$Admin == 0) {
                         output$obs <- renderUI({ page })
                 }
+                 if (USER$Logged == TRUE & USER$Admin == 1) {
+                         output$obs <- renderUI({ admin_page })
+                 }
         })
 }) 
 
