@@ -9,6 +9,7 @@ library("datasets")
 library("googleformr")
 library("DT")
 
+source('rscripts/googleauth.R')
 # CODE FROM ss
 
 # ENCRYPTION INFORMATION
@@ -21,7 +22,16 @@ PASSWORD <- data.frame(Name = c("Bob","Matt","Sarah","John","Nattyboh","Johnnyho
                                     "61409aa1fd47d4a5332de23cbf59a36f",  # John
                                     "25d55ad283aa400af464c76d713c07ad",  # 12345678 
                                     "1de6647f72fe23f908e815385dd6a28a",  # Hopkins
-                                    "9f9d51bc70ef21ca5c14f307980a29d8")) # bob
+                                    "9f9d51bc70ef21ca5c14f307980a29d8"), # bob
+                       Admin = c(0,
+                                 0,
+                                 0,
+                                 0,
+                                 1,
+                                 0,
+                                 0)
+)
+
 # Define server logic required to summarize and view the selected dataset
 
 
@@ -32,13 +42,9 @@ data <- gs_title("mindfullness")
 ## mc BELOW functions dealing with javascript
 
 
-write_date <- function(user, file, action, date, h, m, s){
-        # attempt to store data to a google sheet. 
-  ping(c(user, file, action, date, h, m, s))
-#         new_data <- c(user, file, action, date, h, m, s)
-#         
-#         data %>%
-#                 gs_add_row(ws = 1, new_data)
+write_date <- function(user, file, action, date, h){
+        # Stores data, via a google form, into a google sheet
+  ping(c(user, file, action, date, h))
 }     
 
 
@@ -58,14 +64,17 @@ shinyServer(function(input, output, session) {
         observeEvent(input$plays_r, {
                 write_date(user = input$userName[1], file = input$plays_r[1], 
                            action = "play", date = as.character(today()),
-                           h = hour(ymd_hms(now())), m = minute(ymd_hms(now())),
-                           s = second(ymd_hms(now())))
+                           h = as.character(ymd_hms(now())))
         })
         observeEvent(input$pause_r, {
                 write_date(user = input$userName[1] , file = input$pause_r[1], 
                            action = "pause", date = as.character(today()),
-                           h = hour(ymd_hms(now())), m = minute(ymd_hms(now())),
-                           s = second(ymd_hms(now())))
+                           h = as.character(ymd_hms(now())))
+        })
+        observeEvent(input$end_r, {
+          write_date(user = input$userName[1] , file = input$pause_r[1], 
+                     action = "end", date = as.character(today()),
+                     h = as.character(ymd_hms(now())))
         })
         
         # ss below

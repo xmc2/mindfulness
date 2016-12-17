@@ -28,6 +28,21 @@ function pauseCounter(file) {
         Shiny.onInputChange('pause_r', info);
 }
 
+function endCounter(file) {
+        // Counting the number of pauses
+        ends = ends + 1;
+        
+        // storing data as a javascript array 
+        info = [file, ends];
+        
+        // 
+        Shiny.onInputChange('ends_r', info);
+}
+
+// note, unsure if functions follow JS best practices 
+//
+
+
 // UNUSED FUNCTIONS
 //
 //

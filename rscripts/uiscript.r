@@ -19,7 +19,8 @@ fluidPage(
                                                       type = "audio/mp3", 
                                                       controls = F,
                                                       onplaying = "playCounter('well_5')",
-                                                      onpause = "pauseCounter('well_5')"
+                                                      onpause = "pauseCounter('well_5')",
+                                                      onended = "endCounter('well_5)"
                                            )
                                    ), # add js
                                    
@@ -28,7 +29,8 @@ fluidPage(
                                                       type = "audio/mp3", 
                                                       controls = T,
                                                       onplaying = "playCounter('well_10')",
-                                                      onpause = "pauseCounter('well_10')")
+                                                      onpause = "pauseCounter('well_10')",
+                                                      onended = "endCounter('well_10)")
                                            )
                                    )
                 ),
@@ -41,7 +43,8 @@ fluidPage(
                                                       type = "audio/mp3", 
                                                       controls = T,
                                                       onplaying = "playCounter('self_5')",
-                                                      onpause = "pauseCounter('self_5')"
+                                                      onpause = "pauseCounter('self_5')",
+                                                      onended = "endCounter('self_5)"
                                         ) # add js
                                    ),
                                    fluidRow(
@@ -49,7 +52,8 @@ fluidPage(
                                                       type = "audio/mp3", 
                                                       controls = T,
                                                       onplaying = "playCounter('self_10')",
-                                                      onpause = "pauseCounter('self_10')")
+                                                      onpause = "pauseCounter('self_10')",
+                                                      onended = "endCounter('self_10)")
                                    )
                          )
                 ),
@@ -62,14 +66,16 @@ fluidPage(
                                                       controls = T,
                                                       onended="rscripts/record.R",
                                                       onplaying = "playCounter('breath_5')",
-                                                      onpause = "pauseCounter('breath_5')")
+                                                      onpause = "pauseCounter('breath_5')",
+                                                      onended = "endCounter('breath_5)")
                                    ), # add js
                                    fluidRow(
                                            tags$audio(src = "NICU_10mins_Just_breathe_and_be.mp3", 
                                                       type = "audio/mp3", 
                                                       controls = T,
                                                       onplaying = "playCounter('breath_10')",
-                                                      onpause = "pauseCounter('breath_10')")
+                                                      onpause = "pauseCounter('breath_10')",
+                                                      onended = "endCounter('breath_10)")
                                    )
                          )
                 ),
@@ -81,14 +87,16 @@ fluidPage(
                                                       type = "audio/mp3", 
                                                       controls = T,
                                                       onplaying = "playCounter('arrive_5')",
-                                                      onpause = "pauseCounter('arrive_5')")
+                                                      onpause = "pauseCounter('arrive_5')",
+                                                      onended = "endCounter('arrive_5)")
                                    ), # add js
                                    fluidRow(
                                            tags$audio(src = "NICU_Arriving_10mins.mp3", 
                                                       type = "audio/mp3", 
                                                       controls = T,
                                                       onplaying = "playCounter('arrive_10')",
-                                                      onpause = "pauseCounter('arrive_10')")
+                                                      onpause = "pauseCounter('arrive_10')",
+                                                      onended = "endCounter('arrive_10)")
                                    )
                          )
                 ),
