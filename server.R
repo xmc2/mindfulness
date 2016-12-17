@@ -6,6 +6,7 @@ library("dplyr")
 library("googlesheets")
 library("lubridate")
 library("datasets")
+library("googleformr")
 library("DT")
 
 # CODE FROM ss
@@ -33,11 +34,11 @@ data <- gs_title("mindfullness")
 
 write_date <- function(user, file, action, date, h, m, s){
         # attempt to store data to a google sheet. 
-        
-        new_data <- c(user, file, action, date, h, m, s)
-        
-        data %>%
-                gs_add_row(ws = 1, new_data)
+  ping(c(user, file, action, date, h, m, s))
+#         new_data <- c(user, file, action, date, h, m, s)
+#         
+#         data %>%
+#                 gs_add_row(ws = 1, new_data)
 }     
 
 
