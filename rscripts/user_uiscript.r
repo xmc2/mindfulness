@@ -143,6 +143,16 @@ page <-
                    )
                  )
                )),
+      tabPanel("GIFs",
+               mainPanel(
+                 h3("Destress Here"),
+                 fluidRow(
+                   tags$img(
+                     src = "giphy.gif",
+                     alt = "Awesome gif"
+                   )
+                 ) # add js
+               )),
       # THIS LINE IS NEEDED FOR ACCESSING JAVASCRIPT
       mainPanel(tags$body(tags$script(src = "mycode.js")) #,
                 # verbatimTextOutput("results"))

@@ -39,6 +39,7 @@ vignettes/*.pdf
 # Dense media files
 *.mp3
 .Rproj.user
+*.gif
 
 # test files
 code2/
