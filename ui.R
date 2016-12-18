@@ -1,5 +1,6 @@
 
-source('rscripts/uiscript.r')
+source('rscripts/user_uiscript.r')
+source('rscripts/admin_uiscript.r')
 
 shinyUI(bootstrapPage(
         # Add custom CSS & Javascript;
