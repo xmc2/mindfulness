@@ -6,5 +6,9 @@ admin_page <-
   
   fluidPage(
     # Application title
-    titlePanel("Welcome, Admin")
-  )
+    titlePanel("Welcome, Admin"), 
+      mainPanel(
+        plotOutput("generalplot")  
+      )
+      
+    )

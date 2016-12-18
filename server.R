@@ -82,12 +82,24 @@ shinyServer(function(input, output, session) {
         
         observe({
                 if (USER$Logged == TRUE & USER$Admin == 0) {
+                  
                         output$obs <- renderUI({ page })
                 }
                  if (USER$Logged == TRUE & USER$Admin == 1) {
+                         source('rscripts/googlesheet.R')
                          output$obs <- renderUI({ admin_page })
                  }
         })
+        
+        ## trying to look at data
+        
+        output$generalplot <- renderPlot({
+          
+          # Render a barplot
+          hist(as.factor(dat$File))
+          
+        })
+
 }) 
 
 
