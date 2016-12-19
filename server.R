@@ -10,6 +10,7 @@ library("googleformr")
 library("DT")
 
 source('rscripts/googleauth.R')
+source('rscripts/stats.R')
 # CODE FROM ss
 
 # ENCRYPTION INFORMATION
@@ -92,11 +93,17 @@ shinyServer(function(input, output, session) {
         })
         
         ## trying to look at data
-        
+
         output$generalplot <- renderPlot({
           
           # Render a barplot
-          hist(as.factor(dat$File))
+          barplot(
+            bplot,
+            col = "steelblue",
+            xlab = "File",
+            ylab = "Count",
+            main = "File access counts"
+          )
           
         })
 
