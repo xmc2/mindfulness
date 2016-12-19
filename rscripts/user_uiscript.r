@@ -1,6 +1,7 @@
 
 library("shiny")
 library("tuneR")
+library("dplyr")
 library("markdown")
 library("shinyjs")
 

@@ -11,6 +11,7 @@ library("DT")
 
 source('rscripts/googleauth.R')
 source('rscripts/stats.R')
+
 # CODE FROM ss
 
 # ENCRYPTION INFORMATION
@@ -150,7 +151,7 @@ shinyServer(function(input, output, session) {
       })
       
       output$responses <- DT::renderDataTable({
-        source("rscripts/admin_table.R",  local = TRUE)
+        #source("rscripts/admin_table.R",  local = TRUE)
         
         #*****
         table <- "mindfullness"
