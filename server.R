@@ -93,33 +93,32 @@ shinyServer(function(input, output, session) {
                          table <- "mindfullness"
                          output$obs <- renderUI({ admin_page })
                          
-                         output$responses <- DT::renderDataTable({
-                           #source("rscripts/admin_table.R",  local = TRUE)
+                              output$responses <- DT::renderDataTable({
+                                
+                                    saveData <- function(data) {
+                                    # Grab the Google Sheet
+                                    sheet <- gs_title(table)
+                                    # Add the data as a new row
+                                    gs_add_row(sheet, input = data)
+                                    }
                            
-                           #*****
-                           saveData <- function(data) {
-                             # Grab the Google Sheet
-                             sheet <- gs_title(table)
-                             # Add the data as a new row
-                             gs_add_row(sheet, input = data)
-                           }
-                           loadData <- function() {
-                             # Grab the Google Sheet
-                             sheet <- gs_title(table)
-                             # Read the data
-                             gs_read_csv(sheet)
-                           }
-                           #*****
+                                    loadData <- function() {
+                                    # Grab the Google Sheet
+                                    sheet <- gs_title(table)
+                                    # Read the data
+                                    gs_read_csv(sheet)
+                                    }
+                          
                            
-                           formData <- reactive({
-                             data <- sapply(fields, function(x) input[[x]])
-                             data
-                           })
+                              formData <- reactive({
+                                  data <- sapply(fields, function(x) input[[x]])
+                                  data
+                              })
                            
-                           input$submit
-                           loadData()
+                              input$submit
+                              loadData()
                            
-                         })   
+                             })   
                            
                  }
         })
