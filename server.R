@@ -8,7 +8,7 @@ library("lubridate")
 library("datasets")
 library("googleformr")
 library("DT")
-rsconnect::showLogs(streaming = TRUE)
+# rsconnect::showLogs(streaming = TRUE)
 
 
 source('rscripts/googleauth.R')
@@ -55,7 +55,7 @@ write_date <- function(user, file, action, date, h){
 
 shinyServer(function(input, output, session) {
         ## ss below
-        source("rscripts/Login.R",  local = TRUE)
+        source("rscripts/login.R",  local = TRUE)
         
         ## mc below
         ## ss edited: sourcing the Login.R script grab the username entered into the Login widget 
