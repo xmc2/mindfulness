@@ -1,6 +1,6 @@
 
-source('rscripts/user_uiscript.r')
-source('rscripts/admin_uiscript.r')
+source('rscripts/user_uiscript.R')
+source('rscripts/admin_uiscript.R')
 
 
 shinyUI(bootstrapPage(
