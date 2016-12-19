@@ -27,3 +27,16 @@ bplot2 <- dat %>%
   group_by(File) %>%
   dplyr::select(File) %>%
   table() 
+
+# Total Number Audio Files Accessed by *** Date ***
+filt <- filter(dat, Action == "play")
+bplot3 <- filt %>%
+  group_by(Date, File) %>%
+  dplyr::select(File, Date) %>%
+  table() 
+
+# Total Number Clicks by *** Date
+bplot4<- dat %>%
+  group_by(Date, File) %>%
+  dplyr::select(File, Date) %>%
+  table() 

@@ -61,8 +61,6 @@ shinyServer(function(input, output, session) {
         })
         
         
-        
-        
         observeEvent(input$plays_r, {
                 write_date(user = input$userName[1], file = input$plays_r[1], 
                            action = "play", date = as.character(today()),
@@ -102,7 +100,7 @@ shinyServer(function(input, output, session) {
             col = "steelblue",
             xlab = "File",
             ylab = "Count",
-            main = "File access counts"
+            main = "Total Number of Audio Files Accessed in the Study"
           )
           
         })
@@ -115,14 +113,77 @@ shinyServer(function(input, output, session) {
           col = "darkblue",
           xlab = "File",
           ylab = "Count",
-          main = "Total Number of Clicks"
+          main = "Total Number of Clicks from All Patients in the Study"
         )
         
       })
+      
+      output$generalplot3 <- renderPlot({
+        
+        # Render second barplot
+        barplot(
+          bplot3,
+          col = c("darkblue", "red", "purple", "cyan", "blue", "green", "yellow", "magenta"),
+          xlab = "Date",
+          ylab = "Count",
+          main = "Total Number of Audio Files Accessed from All Patients per Day"
+        )
+        legend("topright",legend=paste(c("Arrive_5", "Arrive_10", "Breath_10", "Breath_5", "Self_10", "Self_5", "Well_10", "Well_5")),
+               col= c("darkblue","red", "purple", "cyan", "blue", "green", "yellow", "magenta"), pch=rep(3,8), 
+               bty="n",ncol=1,cex=0.7)
+      })
 
+      
+      output$generalplot4 <- renderPlot({
+        
+        # Render second barplot
+        barplot(
+          bplot4,
+          col = c("darkblue", "red", "purple", "cyan", "blue", "green", "yellow", "magenta"),
+          xlab = "Date",
+          ylab = "Count",
+          main = "Total Number of Clicks on from All Patients per Day"
+        )
+        legend("topright",legend=paste(c("Arrive_5", "Arrive_10", "Breath_10", "Breath_5", "Self_10", "Self_5", "Well_10", "Well_5")),
+               col= c("darkblue","red", "purple", "cyan", "blue", "green", "yellow", "magenta"), pch=rep(3,8), 
+               bty="n",ncol=1,cex=0.7)
+      })
+      
+      output$responses <- DT::renderDataTable({
+        source("rscripts/admin_table.R",  local = TRUE)
+        
+        #*****
+        table <- "mindfullness"
+        saveData <- function(data) {
+          # Grab the Google Sheet
+          sheet <- gs_title(table)
+          # Add the data as a new row
+          gs_add_row(sheet, input = data)
+        }
+        loadData <- function() {
+          # Grab the Google Sheet
+          sheet <- gs_title(table)
+          # Read the data
+          gs_read_csv(sheet)
+        }
+        #*****
+        
+        formData <- reactive({
+          data <- sapply(fields, function(x) input[[x]])
+          data
+        })
+        
+        input$submit
+        loadData()
+      }) 
+      
+      output$myImage <- renderImage({
+        # A temp file to save the output.
+        # This file will be removed later by renderImage
+        outfile <- "~/Downloads/Mindfulness3.png"
+        
+      }) 
+      
+      
 }) 
-
-
-
-
 

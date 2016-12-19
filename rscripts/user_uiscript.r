@@ -1,3 +1,4 @@
+
 library("shiny")
 library("tuneR")
 library("markdown")
@@ -157,6 +158,10 @@ page <-
       mainPanel(tags$body(tags$script(src = "mycode.js")) #,
                 # verbatimTextOutput("results"))
       )
-    )
+    ),
     
+    inputPanel(
+      img(src='Mindfulness3.jpg')
+      ### the rest of your code
+    )
   )
