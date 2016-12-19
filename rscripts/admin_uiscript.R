@@ -8,7 +8,7 @@ admin_page <-
   fluidPage(
     # Application title
     titlePanel("Welcome, Admin"), 
-      mainPanel(
+      
         plotOutput("generalplot1"),
         plotOutput("generalplot2"),
         plotOutput("generalplot3"),
@@ -17,6 +17,8 @@ admin_page <-
         DT::dataTableOutput("responses", width = 300), tags$hr()
       )
       
-    )
+    
+
+
 
   

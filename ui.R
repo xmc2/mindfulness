@@ -25,7 +25,6 @@ shinyUI(bootstrapPage(
   
 
 
-  
   ## Login module;
   div(class = "login",
       uiOutput("uiLogin"),
