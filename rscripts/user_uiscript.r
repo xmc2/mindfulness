@@ -158,10 +158,11 @@ page <-
       mainPanel(tags$body(tags$script(src = "mycode.js")) #,
                 # verbatimTextOutput("results"))
       )
-    ),
-    
-    inputPanel(
-      img(src='Mindfulness3.jpg')
-      ### the rest of your code
     )
+    #,
+    
+    #inputPanel(
+    #  img(src='Mindfulness3.jpg')
+      ### the rest of your code
+    #)
   )

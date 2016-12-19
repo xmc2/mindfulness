@@ -177,12 +177,12 @@ shinyServer(function(input, output, session) {
         loadData()
       }) 
       
-      output$myImage <- renderImage({
+      #output$myImage <- renderImage({
         # A temp file to save the output.
         # This file will be removed later by renderImage
-        outfile <- "~/Downloads/Mindfulness3.png"
+       # outfile <- "~/Downloads/Mindfulness3.png"
         
-      }) 
+     # }) 
       
       
 }) 
