@@ -1,6 +1,6 @@
 # Mindfulness
 
-Welcome to the mindfulness Shiny app, an Audio tracking web application powered by R/Shiny. 
+Welcome to the mindfulness Shiny app, an Audio tracking web application powered by R/Shiny, and built by [Sarah Salter](https://github.com/sarahsalter) & Matt Cole.
 
 
 Our application provides a convenient way for patients to access wellness audio files and provides use measurement for researchers. 
