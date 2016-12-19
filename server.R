@@ -123,32 +123,22 @@ shinyServer(function(input, output, session) {
       output$generalplot3 <- renderPlot({
         
         # Render second barplot
-        barplot(
-          bplot3,
-          col = c("darkblue", "red", "purple", "cyan", "blue", "green", "yellow", "magenta"),
-          xlab = "Date",
-          ylab = "Count",
-          main = "Total Number of Audio Files Accessed from All Patients per Day"
-        )
-        legend("topright",legend=paste(c("Arrive_5", "Arrive_10", "Breath_10", "Breath_5", "Self_10", "Self_5", "Well_10", "Well_5")),
-               col= c("darkblue","red", "purple", "cyan", "blue", "green", "yellow", "magenta"), pch=rep(3,8), 
-               bty="n",ncol=1,cex=0.7)
+        barplot(as.matrix(bplot3), beside=TRUE,
+                col=rainbow(8),
+                legend.text=rownames(bplot3), 
+                main = "Total Number Audio Files Accessed for all Patients in Study")
+        
       })
 
       
       output$generalplot4 <- renderPlot({
         
         # Render second barplot
-        barplot(
-          bplot4,
-          col = c("darkblue", "red", "purple", "cyan", "blue", "green", "yellow", "magenta"),
-          xlab = "Date",
-          ylab = "Count",
-          main = "Total Number of Clicks on from All Patients per Day"
-        )
-        legend("topright",legend=paste(c("Arrive_5", "Arrive_10", "Breath_10", "Breath_5", "Self_10", "Self_5", "Well_10", "Well_5")),
-               col= c("darkblue","red", "purple", "cyan", "blue", "green", "yellow", "magenta"), pch=rep(3,8), 
-               bty="n",ncol=1,cex=0.7)
+        barplot(as.matrix(bplot4), beside=TRUE,
+                col=rainbow(8),
+                legend.text=rownames(bplot4),
+                main = "Total Number Clicks for all Patients in Study")
+        
       })
       
       output$responses <- DT::renderDataTable({

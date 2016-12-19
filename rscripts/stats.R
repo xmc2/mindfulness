@@ -36,7 +36,9 @@ bplot3 <- filt %>%
   table() 
 
 # Total Number Clicks by *** Date
-bplot4<- dat %>%
+bplot4 <- dat %>%
   group_by(Date, File) %>%
   dplyr::select(File, Date) %>%
   table() 
+          
+          
