@@ -48,6 +48,10 @@ function endCounter(file) {
         console.log("endCounter File");
 }
 
+// possible useful functions 
+
+// onabort , 
+
 // note, unsure if functions follow JS best practices 
 //
 
