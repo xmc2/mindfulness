@@ -151,7 +151,9 @@ page <-
                  fluidRow(
                    tags$img(
                      src = "giphy.gif",
-                     alt = "Awesome gif"
+                     alt = "Awesome gif",
+                     height="500", 
+                     width="500"
                    )
                  ) # add js
                )),

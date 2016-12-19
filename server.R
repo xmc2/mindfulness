@@ -9,8 +9,9 @@ library("datasets")
 library("googleformr")
 library("DT")
 
+
 source('rscripts/googleauth.R')
-source('rscripts/stats.R')
+
 
 # CODE FROM ss
 
@@ -86,7 +87,9 @@ shinyServer(function(input, output, session) {
                         output$obs <- renderUI({ page })
                 }
                  if (USER$Logged == TRUE & USER$Admin == 1) {
-                         source('rscripts/googlesheet.R')
+                          source('rscripts/googlesheet.R')
+                          source('rscripts/stats.R')
+                   
                          table <- "mindfullness"
                          output$obs <- renderUI({ admin_page })
                  }
