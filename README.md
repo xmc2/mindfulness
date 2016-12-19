@@ -2,7 +2,9 @@
 
 Welcome to the mindfulness Shiny app, an Audio tracking web application powered by R/Shiny. 
 
+
 Our application provides a convenient way for patients to access wellness audio files and provides use measurement for researchers. 
+
 
 # Get started
 
@@ -24,15 +26,18 @@ Log in capabilities are provided in order to
 
 ## Security
 
+
 Passwords are encrypted using the MD5 hash function and non-administrators will not be able to see the data being collected.
+
 
 ## Recording
 
 Activity on the site will be logged, including which audio files were interacted with, exactly when the files and whom interacted with the files.
 
-## Visulization
+## Visualization
 
 The admin dashboard provides an overview of the activity occurring on the site.
+
 
 
 
