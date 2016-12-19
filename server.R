@@ -8,7 +8,10 @@ library("lubridate")
 library("datasets")
 library("googleformr")
 library("DT")
+<<<<<<< HEAD
 # rsconnect::showLogs(streaming = TRUE)
+=======
+>>>>>>> 19f75c20a2cdff5d04e30913e4377194b57b04ee
 
 
 source('rscripts/googleauth.R')
@@ -70,20 +73,20 @@ shinyServer(function(input, output, session) {
                            h = as.character(ymd_hms(now())))
         })
         observeEvent(input$pause_r, {
-          print("In the pause_r")
-          message("In the pause_r_message")
-          message("In the pause_r_warning")
-          cat("Hello world!\n", file = stderr())
-          cat("Hello world!\n", file = stdout())
+#           print("In the pause_r")
+#           message("In the pause_r_message")
+#           message("In the pause_r_warning")
+#           cat("Hello world!\n", file = stderr())
+#           cat("Hello world!\n", file = stdout())
           
                 write_date(user = input$userName[1] , file = input$pause_r[1], 
                            action = "pause", date = as.character(today()),
                            h = as.character(ymd_hms(now())))
         })
         observeEvent(input$end_r, {
-          print("In the end_r")
-          message("In the end_r_message")
-          message("In the end_r_warning")
+#           print("In the end_r")
+#           message("In the end_r_message")
+#           message("In the end_r_warning")
           
           write_date(user = input$userName[1] , file = input$pause_r[1], 
                      action = "end", date = as.character(today()),
