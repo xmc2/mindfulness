@@ -118,7 +118,7 @@ shinyServer(function(input, output, session) {
           col = "darkblue",
           xlab = "File",
           ylab = "Count",
-          main = "Total Number of Clicks from All Patients in the Study"
+          main = "Total Recorded Activity (Audio Plays & Pauses) from All Patients in the Study"
         )
         
       })
@@ -140,7 +140,7 @@ shinyServer(function(input, output, session) {
         barplot(as.matrix(bplot4), beside=TRUE,
                 col=rainbow(8),
                 legend.text=rownames(bplot4),
-                main = "Total Number Clicks for all Patients in Study")
+                main = "Total Number (Audio Plays & Pauses) for all Patients in Study")
         
       })
       
