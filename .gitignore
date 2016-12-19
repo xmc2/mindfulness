@@ -48,3 +48,4 @@ TEST
 # weird files that sometimes appear
 *.zip
 *.sqlite
+*.dcf
