@@ -87,6 +87,7 @@ shinyServer(function(input, output, session) {
                 }
                  if (USER$Logged == TRUE & USER$Admin == 1) {
                          source('rscripts/googlesheet.R')
+                         table <- "mindfullness"
                          output$obs <- renderUI({ admin_page })
                  }
         })
@@ -154,7 +155,6 @@ shinyServer(function(input, output, session) {
         #source("rscripts/admin_table.R",  local = TRUE)
         
         #*****
-        table <- "mindfullness"
         saveData <- function(data) {
           # Grab the Google Sheet
           sheet <- gs_title(table)
