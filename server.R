@@ -8,6 +8,7 @@ library("lubridate")
 library("datasets")
 library("googleformr")
 library("DT")
+rsconnect::showLogs(streaming = TRUE)
 
 
 source('rscripts/googleauth.R')
@@ -69,11 +70,21 @@ shinyServer(function(input, output, session) {
                            h = as.character(ymd_hms(now())))
         })
         observeEvent(input$pause_r, {
+          print("In the pause_r")
+          message("In the pause_r_message")
+          message("In the pause_r_warning")
+          cat("Hello world!\n", file = stderr())
+          cat("Hello world!\n", file = stdout())
+          
                 write_date(user = input$userName[1] , file = input$pause_r[1], 
                            action = "pause", date = as.character(today()),
                            h = as.character(ymd_hms(now())))
         })
         observeEvent(input$end_r, {
+          print("In the end_r")
+          message("In the end_r_message")
+          message("In the end_r_warning")
+          
           write_date(user = input$userName[1] , file = input$pause_r[1], 
                      action = "end", date = as.character(today()),
                      h = as.character(ymd_hms(now())))
@@ -93,33 +104,32 @@ shinyServer(function(input, output, session) {
                          table <- "mindfullness"
                          output$obs <- renderUI({ admin_page })
                          
-                         output$responses <- DT::renderDataTable({
-                           #source("rscripts/admin_table.R",  local = TRUE)
+                              output$responses <- DT::renderDataTable({
+                                
+                                    saveData <- function(data) {
+                                    # Grab the Google Sheet
+                                    sheet <- gs_title(table)
+                                    # Add the data as a new row
+                                    gs_add_row(sheet, input = data)
+                                    }
                            
-                           #*****
-                           saveData <- function(data) {
-                             # Grab the Google Sheet
-                             sheet <- gs_title(table)
-                             # Add the data as a new row
-                             gs_add_row(sheet, input = data)
-                           }
-                           loadData <- function() {
-                             # Grab the Google Sheet
-                             sheet <- gs_title(table)
-                             # Read the data
-                             gs_read_csv(sheet)
-                           }
-                           #*****
+                                    loadData <- function() {
+                                    # Grab the Google Sheet
+                                    sheet <- gs_title(table)
+                                    # Read the data
+                                    gs_read_csv(sheet)
+                                    }
+                          
                            
-                           formData <- reactive({
-                             data <- sapply(fields, function(x) input[[x]])
-                             data
-                           })
+                              formData <- reactive({
+                                  data <- sapply(fields, function(x) input[[x]])
+                                  data
+                              })
                            
-                           input$submit
-                           loadData()
+                              input$submit
+                              loadData()
                            
-                         })   
+                             })   
                            
                  }
         })
