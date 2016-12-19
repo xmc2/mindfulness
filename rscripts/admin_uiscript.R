@@ -8,7 +8,8 @@ admin_page <-
     # Application title
     titlePanel("Welcome, Admin"), 
       mainPanel(
-        plotOutput("generalplot")  
+        plotOutput("generalplot1"),
+        plotOutput("generalplot2")
       )
       
     )

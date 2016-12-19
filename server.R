@@ -94,9 +94,9 @@ shinyServer(function(input, output, session) {
         
         ## trying to look at data
 
-        output$generalplot <- renderPlot({
+        output$generalplot1 <- renderPlot({
           
-          # Render a barplot
+          # Render first barplot
           barplot(
             bplot,
             col = "steelblue",
@@ -106,8 +106,23 @@ shinyServer(function(input, output, session) {
           )
           
         })
+        
+      output$generalplot2 <- renderPlot({
+          
+          # Render second barplot
+        barplot(
+          bplot2,
+          col = "darkblue",
+          xlab = "File",
+          ylab = "Count",
+          main = "Total Number of Clicks"
+        )
+        
+      })
 
 }) 
+
+
 
 
 

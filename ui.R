@@ -22,3 +22,4 @@ shinyUI(bootstrapPage(
         div(class = "span8", plotOutput("distPlot"))
         
 ))
+
