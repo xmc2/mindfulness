@@ -5,7 +5,7 @@ Welcome to the mindfulness Shiny app, an Audio tracking web application powered 
 
 Our application provides a convenient way for patients to access wellness audio files and provides use measurement for researchers. 
 
-You may access the live site: 
+You may access the live site: https://jhubiostatistics.shinyapps.io/mindfulness/
 
 # Get started
 
