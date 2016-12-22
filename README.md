@@ -9,6 +9,8 @@ Our application provides a convenient way for patients to access wellness audio 
 # Get started
 
 To get started, go ahead and clone the repository: `git clone https://github.com/mattkcole/mindfulness.git`
+
+
 You will also need to obtain the media files from dropbox, (download [here](https://www.dropbox.com/sh/fbmgp84m8wohkev/AACOnzNsbsI1kNxT63L5m6Dya?dl=0)* and place all .mp3 and .gif files into the `~/www` sub directory)
 
 Load shiny, `library('shiny')` and run the app with `runApp()`
@@ -47,7 +49,7 @@ The admin dashboard provides an overview of the activity occurring on the site.
 
 
 
-* Working on a more programatic way to download data
+\* Working on a more programatic way to download data
 
 
 
