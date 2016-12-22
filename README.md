@@ -1,10 +1,11 @@
 # Mindfulness
 
 Welcome to the mindfulness Shiny app, an Audio tracking web application powered by R/Shiny, and built by [Sarah Salter](https://github.com/sarahsalter) & Matt Cole.
-
+ 
 
 Our application provides a convenient way for patients to access wellness audio files and provides use measurement for researchers. 
 
+You may access the live site: 
 
 # Get started
 
@@ -38,7 +39,7 @@ Passwords are encrypted using the MD5 hash function and non-administrators will 
 
 ## Recording
 
-Activity on the site will be logged, including which audio files were interacted with, exactly when the files and whom interacted with the files. This is done so in a way that protects data integrety through lack of data access permissions given to non-admin users (they have no access to the google sheet).
+Activity on the site will be logged, including which audio files were interacted with, exactly when the files and whom interacted with the files. This is done so in a way that protects data integrity through lack of data access permissions given to non-admin users (they have no access to the Google sheet).
 
 ## Visualization
 
@@ -49,7 +50,7 @@ The admin dashboard provides an overview of the activity occurring on the site.
 
 
 
-\* Working on a more programatic way to download data
+\* Working on a more programmatic way to download data
 
 
 
